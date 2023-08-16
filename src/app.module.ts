@@ -16,7 +16,8 @@ import { UsersModule } from './users/users.module';
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true}),
-    UsersModule,],
+    UsersModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
