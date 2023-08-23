@@ -1,8 +1,14 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './users/users.module';
+import { PruebaModule } from './prueba/prueba.module';
+import { CarrerasModule } from './carreras/carreras.module';
+import { LugarModule } from './lugar/lugar.module';
+import { LenguajeModule } from './lenguaje/lenguaje.module';
+import { AutorModule } from './autor/autor.module';
+import { EditorialModule } from './editorial/editorial.module';
+import * as morgan from 'morgan';
 
 @Module({
   imports: [
@@ -13,12 +19,21 @@ import { UsersModule } from './users/users.module';
       username: 'alex',
       password: '747563616e',
       database: 'Biblioteca',
-      entities: [__dirname + './**/**/*entity{.ts,.js}'],
+      entities: [],
       autoLoadEntities: true,
       synchronize: true}),
-    UsersModule,
+    PruebaModule,
+    CarrerasModule,
+    LugarModule,
+    LenguajeModule,
+    AutorModule,
+    EditorialModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(morgan('dev')).forRoutes('*');
+  }
+}
