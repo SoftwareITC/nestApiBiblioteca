@@ -1,9 +1,7 @@
-
-import { IsEmail } from "class-validator";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Editorial {
+export class Proveedor {
 
     @PrimaryGeneratedColumn()
     id: number;

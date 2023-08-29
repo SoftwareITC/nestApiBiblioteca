@@ -8,6 +8,8 @@ import { LugarModule } from './lugar/lugar.module';
 import { LenguajeModule } from './lenguaje/lenguaje.module';
 import { AutorModule } from './autor/autor.module';
 import { EditorialModule } from './editorial/editorial.module';
+import { ProveedorModule } from './proveedor/proveedor.module';
+import { TemasModule } from './temas/temas.module';
 import * as morgan from 'morgan';
 
 @Module({
@@ -28,6 +30,8 @@ import * as morgan from 'morgan';
     LenguajeModule,
     AutorModule,
     EditorialModule,
+    ProveedorModule,
+    TemasModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,6 +1,6 @@
-import { IsNumber, IsOptional, IsString, Max,  MaxLength,  Min, MinLength } from "class-validator";
+import { IsString, IsOptional, MaxLength, MinLength } from "class-validator";
 
-export class CreateEditorialDto {
+export class CreateProveedorDto {
 
     @IsString()
     nombre: string;
@@ -18,6 +18,5 @@ export class CreateEditorialDto {
     @IsOptional()
     @IsString()
     email: string;
-
 
 }
