@@ -11,8 +11,6 @@ export class FichaLibro {
     @PrimaryGeneratedColumn()
     id: number;
 
-    //Fk recurso id
-
     @Column()
     anioPublicacion:number
 
@@ -49,7 +47,6 @@ export class FichaLibro {
     @Column()
     paginasdimensiones: string
 
-    //FK tema id
     @ManyToMany(() => Tema, tema => tema.id)
     @JoinTable()
     temas: Tema[]
