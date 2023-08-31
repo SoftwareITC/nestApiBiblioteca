@@ -3,12 +3,12 @@ import { PruebaService } from './prueba.service';
 import { PruebaController } from './prueba.controller';
 import { Prueba } from './entities/prueba.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CarrerasModule } from 'src/carreras/carreras.module';
-import { CarrerasService } from 'src/carreras/carreras.service';
+import { CarreraModule } from 'src/carrera/carrera.module';
+import { CarreraService } from 'src/carrera/carrera.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Prueba]),CarrerasModule],
+  imports: [TypeOrmModule.forFeature([Prueba]),CarreraModule],
   controllers: [PruebaController],
-  providers: [PruebaService,CarrerasService],
+  providers: [PruebaService,CarreraService],
 })
 export class PruebaModule {}

@@ -1,4 +1,5 @@
-import { Carrera } from "src/carreras/entities/carrera.entity";
+
+import { Carrera } from "src/carrera/entities/carrera.entity";
 import { Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn, ManyToOne } from "typeorm";
 
 @Entity()
@@ -16,8 +17,8 @@ export class Prueba {
     @Column()
     matricula: string;
 
-    @ManyToOne(() => Carrera, (carrera) => carrera.id,{eager:true})
-    carrera: Carrera
+     @ManyToOne(() => Carrera, (carrera) => carrera.id,{eager:true})
+     carrera: Carrera
   
     @DeleteDateColumn()
     deletedAt: Date;

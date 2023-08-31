@@ -3,13 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PruebaModule } from './prueba/prueba.module';
-import { CarrerasModule } from './carreras/carreras.module';
 import { LugarModule } from './lugar/lugar.module';
 import { LenguajeModule } from './lenguaje/lenguaje.module';
 import { AutorModule } from './autor/autor.module';
 import { EditorialModule } from './editorial/editorial.module';
 import { ProveedorModule } from './proveedor/proveedor.module';
 import { TemasModule } from './temas/temas.module';
+import { FichaLibroModule } from './ficha-libro/ficha-libro.module';
+import { CarreraModule } from './carrera/carrera.module';
 import * as morgan from 'morgan';
 
 @Module({
@@ -25,13 +26,14 @@ import * as morgan from 'morgan';
       autoLoadEntities: true,
       synchronize: true}),
     PruebaModule,
-    CarrerasModule,
     LugarModule,
     LenguajeModule,
     AutorModule,
     EditorialModule,
     ProveedorModule,
     TemasModule,
+    FichaLibroModule,
+    CarreraModule,
   ],
   controllers: [AppController],
   providers: [AppService],

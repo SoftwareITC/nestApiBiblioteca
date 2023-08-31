@@ -4,7 +4,7 @@ import { UpdatePruebaDto } from './dto/update-prueba.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Prueba } from './entities/prueba.entity';
-import { Carrera } from 'src/carreras/entities/carrera.entity';
+import { Carrera } from 'src/carrera/entities/carrera.entity';
 
 @Injectable()
 export class PruebaService {
