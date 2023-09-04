@@ -4,6 +4,7 @@ import { Lenguaje } from "src/lenguaje/entities/lenguaje.entity";
 import { Lugar } from "src/lugar/entities/lugar.entity";
 import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Tema } from '../../temas/entities/tema.entity';
+import { Autor } from '../../autor/entities/autor.entity';
 
 @Entity()
 export class FichaLibro {
@@ -33,7 +34,9 @@ export class FichaLibro {
     clasificacionLs:string
 
     //FK autor
-    
+    @ManyToMany(() => Autor, autor => autor.id,{eager:true})
+    @JoinTable()
+    autores: Autor[]
 
     @Column()
     titulo:string
@@ -47,7 +50,7 @@ export class FichaLibro {
     @Column()
     paginasdimensiones: string
 
-    @ManyToMany(() => Tema, tema => tema.id)
+    @ManyToMany(() => Tema, tema => tema.id,{eager:true})
     @JoinTable()
     temas: Tema[]
 

@@ -23,6 +23,9 @@ export class CreateFichaLibroDto {
     @IsString()
     clasificacionLs:string
 
+    @IsArray()
+    autores: string[]
+
     @IsString()
     titulo:string
 

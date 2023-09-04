@@ -4,12 +4,12 @@ import { UpdateFichaLibroDto } from './dto/update-ficha-libro.dto';
 import { FichaLibro } from './entities/ficha-libro.entity';
 import { Lugar } from 'src/lugar/entities/lugar.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreatePruebaDto } from 'src/prueba/dto/create-prueba.dto';
 import { Repository } from 'typeorm';
 import { Lenguaje } from 'src/lenguaje/entities/lenguaje.entity';
 import { Carrera } from '../carrera/entities/carrera.entity';
 import { Editorial } from '../editorial/entities/editorial.entity';
 import { Tema } from 'src/temas/entities/tema.entity';
+import { Autor } from 'src/autor/entities/autor.entity';
 
 @Injectable()
 export class FichaLibroService {
@@ -31,7 +31,10 @@ export class FichaLibroService {
     private editorialRepository: Repository<Editorial>,
 
     @InjectRepository(Tema)
-    private temaRepository: Repository<Tema>
+    private temaRepository: Repository<Tema>,
+
+    @InjectRepository(Autor)
+    private autorRepository: Repository<Autor>
   ) {}
 
 
@@ -71,6 +74,8 @@ export class FichaLibroService {
 
     const temas = await this.temaRepository.findByIds(createFichaLibroDto.temas);
 
+    const autores = await this.autorRepository.findByIds(createFichaLibroDto.autores);
+
 
 
     const fichaLibro = this.fichaLibroRepository.create({
@@ -79,7 +84,8 @@ export class FichaLibroService {
       lenguaje,
       carrera,
       editorial,
-      temas
+      temas,
+      autores
     }
     );
     const resp = await this.fichaLibroRepository.save(fichaLibro)
