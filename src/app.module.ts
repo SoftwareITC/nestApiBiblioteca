@@ -11,6 +11,8 @@ import { ProveedorModule } from './proveedor/proveedor.module';
 import { TemasModule } from './temas/temas.module';
 import { FichaLibroModule } from './ficha-libro/ficha-libro.module';
 import { CarreraModule } from './carrera/carrera.module';
+import { AnalistaModule } from './analista/analista.module';
+import { AccesibilidadModule } from './accesibilidad/accesibilidad.module';
 import * as morgan from 'morgan';
 
 @Module({
@@ -34,6 +36,8 @@ import * as morgan from 'morgan';
     TemasModule,
     FichaLibroModule,
     CarreraModule,
+    AnalistaModule,
+    AccesibilidadModule,
   ],
   controllers: [AppController],
   providers: [AppService],

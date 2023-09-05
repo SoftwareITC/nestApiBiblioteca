@@ -14,8 +14,8 @@ export class AutorService {
 
   async create(createAutorDto: CreateAutorDto) {
     
-    const carrera = this.autorRepository.create(createAutorDto);
-    const resp = await this.autorRepository.save(carrera);
+    const autor = this.autorRepository.create(createAutorDto);
+    const resp = await this.autorRepository.save(autor);
 
     if(resp)  return {status:true, resp};
     else return { status: false}
