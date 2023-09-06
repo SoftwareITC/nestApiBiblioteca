@@ -13,6 +13,7 @@ import { FichaLibroModule } from './ficha-libro/ficha-libro.module';
 import { CarreraModule } from './carrera/carrera.module';
 import { AnalistaModule } from './analista/analista.module';
 import { AccesibilidadModule } from './accesibilidad/accesibilidad.module';
+import { EjemplarLibrosModule } from './ejemplar-libros/ejemplar-libros.module';
 import * as morgan from 'morgan';
 
 @Module({
@@ -38,6 +39,7 @@ import * as morgan from 'morgan';
     CarreraModule,
     AnalistaModule,
     AccesibilidadModule,
+    EjemplarLibrosModule,
   ],
   controllers: [AppController],
   providers: [AppService],

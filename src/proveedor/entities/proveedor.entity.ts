@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { EjemplarLibro } from "src/ejemplar-libros/entities/ejemplar-libro.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Proveedor {
@@ -17,5 +18,8 @@ export class Proveedor {
 
     @Column({nullable: true})
     email: string;
+
+    @OneToMany(() => EjemplarLibro, (ejemplarLibro) => ejemplarLibro.proveedor)
+    ejemplarLibro: EjemplarLibro[]
 
 }
