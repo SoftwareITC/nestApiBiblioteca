@@ -2,9 +2,10 @@ import { Carrera } from "src/carrera/entities/carrera.entity";
 import { Editorial } from "src/editorial/entities/editorial.entity";
 import { Lenguaje } from "src/lenguaje/entities/lenguaje.entity";
 import { Lugar } from "src/lugar/entities/lugar.entity";
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Tema } from '../../temas/entities/tema.entity';
 import { Autor } from '../../autor/entities/autor.entity';
+import { EjemplarLibro } from "src/ejemplar-libros/entities/ejemplar-libro.entity";
 
 @Entity()
 export class FichaLibro {
@@ -54,5 +55,7 @@ export class FichaLibro {
     @JoinTable()
     temas: Tema[]
 
+    @OneToMany(() => EjemplarLibro, (ejemplarLibro) => ejemplarLibro.fichaLibro)
+    ejemplarLibro: EjemplarLibro[]
 
 }

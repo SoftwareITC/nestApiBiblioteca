@@ -14,5 +14,6 @@ import { AutorModule } from 'src/autor/autor.module';
   imports: [TypeOrmModule.forFeature([FichaLibro]),LugarModule,LenguajeModule,CarreraModule,EditorialModule,TemasModule,AutorModule],
   controllers: [FichaLibroController],
   providers: [FichaLibroService],
+  exports: [TypeOrmModule]
 })
 export class FichaLibroModule {}

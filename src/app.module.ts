@@ -14,6 +14,9 @@ import { CarreraModule } from './carrera/carrera.module';
 import { AnalistaModule } from './analista/analista.module';
 import { AccesibilidadModule } from './accesibilidad/accesibilidad.module';
 import { EjemplarLibrosModule } from './ejemplar-libros/ejemplar-libros.module';
+import { RecursoBibliograficoModule } from './recurso-bibliografico/recurso-bibliografico.module';
+import { BibliotecaModule } from './biblioteca/biblioteca.module';
+import { EstanteModule } from './estante/estante.module';
 import * as morgan from 'morgan';
 
 @Module({
@@ -40,6 +43,9 @@ import * as morgan from 'morgan';
     AnalistaModule,
     AccesibilidadModule,
     EjemplarLibrosModule,
+    RecursoBibliograficoModule,
+    BibliotecaModule,
+    EstanteModule,
   ],
   controllers: [AppController],
   providers: [AppService],

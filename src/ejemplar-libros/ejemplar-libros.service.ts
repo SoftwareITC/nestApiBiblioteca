@@ -6,6 +6,9 @@ import { Repository } from 'typeorm';
 import { EjemplarLibro } from './entities/ejemplar-libro.entity';
 import { Accesibilidad } from 'src/accesibilidad/entities/accesibilidad.entity';
 import { Proveedor } from 'src/proveedor/entities/proveedor.entity';
+import { Analista } from '../analista/entities/analista.entity';
+import { Estante } from 'src/estante/entities/estante.entity';
+import { FichaLibro } from 'src/ficha-libro/entities/ficha-libro.entity';
 
 @Injectable()
 export class EjemplarLibrosService {
@@ -18,7 +21,16 @@ export class EjemplarLibrosService {
     private accesibilidadRepository: Repository<Accesibilidad>,
 
     @InjectRepository(Proveedor)
-    private proveedorRepository: Repository<Proveedor>
+    private proveedorRepository: Repository<Proveedor>,
+
+    @InjectRepository(Analista)
+    private analistaRepository: Repository<Analista>,
+
+    @InjectRepository(Estante)
+    private estanteRepository: Repository<Estante>,
+
+     @InjectRepository(FichaLibro)
+     private fichaLibroRepository: Repository<FichaLibro>
   ) {}
 
   async create(createEjemplarLibroDto: CreateEjemplarLibroDto) {
@@ -39,10 +51,39 @@ export class EjemplarLibrosService {
       throw new BadRequestException('Proveedor not found');
     }
 
+    const analista = await this.analistaRepository.findOneBy({
+      nombre: createEjemplarLibroDto.analista
+    });
+
+    if (!analista) {
+      throw new BadRequestException('Analista not found');
+    }
+
+    const estante = await this.estanteRepository.findOneBy({
+      nombre: createEjemplarLibroDto.estante
+    });
+
+    if (!estante) {
+      throw new BadRequestException('Estante not found');
+    }
+
+    const fichaLibro = await this.fichaLibroRepository.findOneBy({
+      id: createEjemplarLibroDto.fichaLibro
+    });
+
+    if (!fichaLibro) {
+      throw new BadRequestException('Ficha Libro not found');
+    }
+
+
     const ejemplarLibro = this.ejemplarLibroRepository.create({
       ...createEjemplarLibroDto,
       accesibilidad,
-      proveedor});
+      proveedor,
+      analista,
+      estante,
+      fichaLibro
+    });
 
     const resp = await this.ejemplarLibroRepository.save(ejemplarLibro);
 

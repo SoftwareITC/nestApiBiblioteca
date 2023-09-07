@@ -3,6 +3,9 @@ import { IsBoolean, IsDate, IsDateString, IsNumber, IsString } from "class-valid
 export class CreateEjemplarLibroDto {
 
 @IsNumber()
+fichaLibro: number;
+
+@IsNumber()
 numeroEjemplar: number;
 
 @IsNumber()
@@ -19,6 +22,12 @@ proveedor: string;
 
 @IsString()
 tipoAdquisicion: string;
+
+@IsString()
+estante: string;
+
+@IsString()
+analista: string;
 
 @IsDateString()
 fechaRegistro: string;

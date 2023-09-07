@@ -1,5 +1,6 @@
 import { IsBoolean, IsString } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { EjemplarLibro } from "src/ejemplar-libros/entities/ejemplar-libro.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Analista {
@@ -21,5 +22,8 @@ export class Analista {
 
     @Column({default:false})
     isActivo: boolean
+
+    @OneToMany(() => EjemplarLibro, (ejemplarLibro) => ejemplarLibro.analista)
+    ejemplarLibro: EjemplarLibro[]
 
 }
