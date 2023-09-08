@@ -1,4 +1,5 @@
 import { FichaLibro } from "src/ficha-libro/entities/ficha-libro.entity";
+import { FichaTesi } from "src/ficha-tesis/entities/ficha-tesi.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -16,5 +17,7 @@ export class Lenguaje {
     @OneToMany(() => FichaLibro, (fichaLibro) => fichaLibro.lenguaje)
     fichaLibro: FichaLibro[]
 
+    @OneToMany(() => FichaTesi, (fichaTesi) => fichaTesi.lenguaje)
+    fichaTesi: FichaTesi[]
 
 }

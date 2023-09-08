@@ -1,4 +1,5 @@
 import { FichaLibro } from "src/ficha-libro/entities/ficha-libro.entity";
+import { FichaTesi } from "src/ficha-tesis/entities/ficha-tesi.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -13,7 +14,10 @@ nombre: string;
 @Column({ unique: true })
 codigo: string;
 
-//  @OneToMany(() => FichaLibro, (fichaLibro) => fichaLibro.carrera)
-//      fichaLibro: FichaLibro[]
+@OneToMany(() => FichaLibro, (fichaLibro) => fichaLibro.lugar)
+fichaLibro: FichaLibro[]
+
+@OneToMany(() => FichaTesi, (fichaTesi) => fichaTesi.lugar)
+fichaTesi: FichaTesi[]
 
 }

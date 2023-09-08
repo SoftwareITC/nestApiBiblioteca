@@ -14,7 +14,7 @@ export class Analista {
     @Column()
     nombre:string;
 
-    @Column()
+    @Column({unique: true})
     nombreUsuario: string;
 
     @Column()
