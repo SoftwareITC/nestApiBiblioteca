@@ -18,6 +18,7 @@ import { RecursoBibliograficoModule } from './recurso-bibliografico/recurso-bibl
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import { EstanteModule } from './estante/estante.module';
 import { FichaTesisModule } from './ficha-tesis/ficha-tesis.module';
+import { EjemplarTesisModule } from './ejemplar-tesis/ejemplar-tesis.module';
 import * as morgan from 'morgan';
 
 @Module({
@@ -48,6 +49,7 @@ import * as morgan from 'morgan';
     BibliotecaModule,
     EstanteModule,
     FichaTesisModule,
+    EjemplarTesisModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,9 +1,10 @@
 import { Autor } from "src/autor/entities/autor.entity";
 import { Carrera } from "src/carrera/entities/carrera.entity";
+import { EjemplarTesi } from "src/ejemplar-tesis/entities/ejemplar-tesi.entity";
 import { Lenguaje } from "src/lenguaje/entities/lenguaje.entity";
 import { Lugar } from "src/lugar/entities/lugar.entity";
 import { Tema } from "src/temas/entities/tema.entity";
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class FichaTesi {
@@ -48,5 +49,8 @@ export class FichaTesi {
     @ManyToMany(() => Tema, tema => tema.id,{eager:true})
     @JoinTable()
     temas: Tema[]
+
+    @OneToMany(() => EjemplarTesi, (ejemplarTesi) => ejemplarTesi.fichaTesi)
+    ejemplarTesi: EjemplarTesi[]
 
 }
