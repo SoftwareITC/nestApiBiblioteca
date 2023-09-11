@@ -1,4 +1,5 @@
 import { FichaLibro } from "src/ficha-libro/entities/ficha-libro.entity";
+import { FichaPublicacionPeriodica } from "src/ficha-publicacion-periodica/entities/ficha-publicacion-periodica.entity";
 import { FichaTesi } from "src/ficha-tesis/entities/ficha-tesi.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -19,5 +20,8 @@ export class Lenguaje {
 
     @OneToMany(() => FichaTesi, (fichaTesi) => fichaTesi.lenguaje)
     fichaTesi: FichaTesi[]
+
+    @OneToMany(() => FichaPublicacionPeriodica, (fichaPublicacionPeriodica) => fichaPublicacionPeriodica.lenguaje)
+    fichaPublicacionPeriodica: FichaPublicacionPeriodica[]
 
 }
