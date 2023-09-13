@@ -21,6 +21,7 @@ import { FichaTesisModule } from './ficha-tesis/ficha-tesis.module';
 import { AuthModule } from './auth/auth.module';
 import { EjemplarTesisModule } from './ejemplar-tesis/ejemplar-tesis.module';
 import { FichaPublicacionPeriodicaModule } from './ficha-publicacion-periodica/ficha-publicacion-periodica.module';
+import { EjemplarPublicacionPeriodicaModule } from './ejemplar-publicacion-periodica/ejemplar-publicacion-periodica.module';
 
 import * as morgan from 'morgan';
 
@@ -55,6 +56,7 @@ import * as morgan from 'morgan';
     AuthModule,
     EjemplarTesisModule,
     FichaPublicacionPeriodicaModule,
+    EjemplarPublicacionPeriodicaModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,4 +1,5 @@
 import { EjemplarLibro } from "src/ejemplar-libros/entities/ejemplar-libro.entity";
+import { EjemplarPublicacionPeriodica } from "src/ejemplar-publicacion-periodica/entities/ejemplar-publicacion-periodica.entity";
 import { EjemplarTesi } from "src/ejemplar-tesis/entities/ejemplar-tesi.entity";
 import { FichaLibro } from "src/ficha-libro/entities/ficha-libro.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
@@ -17,5 +18,8 @@ export class Accesibilidad {
 
     @OneToMany(() => EjemplarTesi, (ejemplarTesi) => ejemplarTesi.accesibilidad)
     ejemplarTesi: EjemplarTesi[]
+
+    @OneToMany(() => EjemplarPublicacionPeriodica, (ejemplarPublicacionPeriodica) => ejemplarPublicacionPeriodica.accesibilidad)
+    ejemplarPublicacionPeriodica: EjemplarPublicacionPeriodica[]
 
 }

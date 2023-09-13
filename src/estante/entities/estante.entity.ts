@@ -1,5 +1,6 @@
 import { Biblioteca } from "src/biblioteca/entities/biblioteca.entity";
 import { EjemplarLibro } from "src/ejemplar-libros/entities/ejemplar-libro.entity";
+import { EjemplarPublicacionPeriodica } from "src/ejemplar-publicacion-periodica/entities/ejemplar-publicacion-periodica.entity";
 import { EjemplarTesi } from "src/ejemplar-tesis/entities/ejemplar-tesi.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -20,5 +21,8 @@ export class Estante {
 
     @OneToMany(() => EjemplarTesi, (ejemplarTesi) => ejemplarTesi.estante)
     ejemplarTesi: EjemplarTesi[]
+
+    @OneToMany(() => EjemplarPublicacionPeriodica, (ejemplarPublicacionPeriodica) => ejemplarPublicacionPeriodica.estante)
+    ejemplarPublicacionPeriodica: EjemplarPublicacionPeriodica[]
 
 }
