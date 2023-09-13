@@ -1,4 +1,5 @@
 import { EjemplarLibro } from "src/ejemplar-libros/entities/ejemplar-libro.entity";
+import { FichaPublicacionPeriodica } from "src/ficha-publicacion-periodica/entities/ficha-publicacion-periodica.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -21,5 +22,8 @@ export class Proveedor {
 
     @OneToMany(() => EjemplarLibro, (ejemplarLibro) => ejemplarLibro.proveedor)
     ejemplarLibro: EjemplarLibro[]
+
+    @OneToMany(() => FichaPublicacionPeriodica, (fichaPublicacionPeriodica) => fichaPublicacionPeriodica.proveedor)
+    fichaPublicacionPeriodica: FichaPublicacionPeriodica[]
 
 }

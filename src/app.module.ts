@@ -19,6 +19,9 @@ import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import { EstanteModule } from './estante/estante.module';
 import { FichaTesisModule } from './ficha-tesis/ficha-tesis.module';
 import { AuthModule } from './auth/auth.module';
+import { EjemplarTesisModule } from './ejemplar-tesis/ejemplar-tesis.module';
+import { FichaPublicacionPeriodicaModule } from './ficha-publicacion-periodica/ficha-publicacion-periodica.module';
+
 import * as morgan from 'morgan';
 
 @Module({
@@ -50,6 +53,8 @@ import * as morgan from 'morgan';
     EstanteModule,
     FichaTesisModule,
     AuthModule,
+    EjemplarTesisModule,
+    FichaPublicacionPeriodicaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
