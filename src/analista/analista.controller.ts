@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { AnalistaService } from './analista.service';
 import { CreateAnalistaDto } from './dto/create-analista.dto';
 import { UpdateAnalistaDto } from './dto/update-analista.dto';
+import { RenewPassword } from './dto/renewPassword.dto';
 
 @Controller('analista')
 export class AnalistaController {
@@ -18,13 +19,18 @@ export class AnalistaController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.analistaService.findOne(+id);
+  findOneId(@Param('id') id: string) {
+    return this.analistaService.findOneId(+id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateAnalistaDto: UpdateAnalistaDto) {
     return this.analistaService.update(+id, updateAnalistaDto);
+  }
+
+  @Patch('/renew-password/:id')
+  updatePassword(@Param('id') id: string, @Body() renewPassword: RenewPassword) {
+    return this.analistaService.updatePassword(+id, renewPassword);
   }
 
   @Delete(':id')

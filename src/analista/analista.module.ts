@@ -8,6 +8,6 @@ import { Analista } from './entities/analista.entity';
   imports: [TypeOrmModule.forFeature([Analista])],
   controllers: [AnalistaController],
   providers: [AnalistaService],
-  exports: [TypeOrmModule]
+  exports: [TypeOrmModule, AnalistaService]
 })
 export class AnalistaModule {}
